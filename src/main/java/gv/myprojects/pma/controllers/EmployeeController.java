@@ -6,33 +6,32 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import gv.myprojects.pma.dao.iProjectRepository;
+import gv.myprojects.pma.dao.iEmployeeRepository;
+import gv.myprojects.pma.entities.Employee;
 import gv.myprojects.pma.entities.Project;
 
+
 @Controller
-@RequestMapping("/projects")
-public class ProjectController {
+@RequestMapping("/employees")
+public class EmployeeController {
 	
 	@Autowired
-	iProjectRepository proRepo;
+	iEmployeeRepository empRepo;
 	
 	@RequestMapping("/new")
 	public String displayProjectForm(Model model) {
-		Project newProject = new Project();
+		Employee newEmployee = new Employee();
 		
-		model.addAttribute("project", newProject);
-		return "projects/new-project";
+		model.addAttribute("employee", newEmployee);
+		return "employees/new-employee";
 	}
 	
 	@PostMapping("/save")
-	public String createProject(Project project, Model model) {
-		proRepo.save(project);
+	public String createProject(Employee employee, Model model) {
+		empRepo.save(employee);
 		
 		//use redirect to prevent duplicate submissions
-		return "redirect:/projects/new";
-	}
-	
-	
-	
+		return "redirect:/employees/new";
 
+	}
 }
