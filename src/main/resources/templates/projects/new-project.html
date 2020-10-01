@@ -15,13 +15,15 @@
 		
 		<select th:field = "${project.stage}">
 			<option th:value="NOTSTARTED"> Not Started</option>
-			<option th:value="INPROGRESS"> In Progress</option>
+			<option th:value="INPROGRESS"> In ProSress</option>
 			<option th:value="COMPLETED"> Completed</option>
 		</select>
-		
+		<!-- 
 		<textarea type="text" placeholder="Enter Project Description" th:field = "${project.description}"></textarea>
+		-->
 		
 		<!--  "*" is the same as writing project.employee....it's refering to a field within the parent class.-->
+		<!--
 		<select th:field = "*{employees}" multiple = "multiple">
 			<option th:each = "employee : ${allEmployees}"
 					th:value = "${employee.employeeId}"
@@ -30,6 +32,7 @@
 		</select>
 		
 		<input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
+		-->
 		<button type="submit">Create Project</button>
 		
 		</form>
