@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import gv.myprojects.pma.dao.iEmployeeRepository;
 import gv.myprojects.pma.dao.iProjectRepository;
 import gv.myprojects.pma.entities.Employee;
 import gv.myprojects.pma.entities.Project;
@@ -19,6 +20,9 @@ public class ProjectController {
 	
 	@Autowired
 	iProjectRepository proRepo;
+	
+	@Autowired
+	iEmployeeRepository empRepo;
 	
 	@GetMapping
 	public String displayProjectss(Model model) {
@@ -31,7 +35,11 @@ public class ProjectController {
 	public String displayProjectForm(Model model) {
 		Project newProject = new Project();
 		
+		//get list of employees to pass to dropdown
+		List<Employee>employees = empRepo.findAll();
+		
 		model.addAttribute("project", newProject);
+		model.addAttribute("allEmployees", employees);
 		return "projects/new-project";
 	}
 	
@@ -40,7 +48,7 @@ public class ProjectController {
 		proRepo.save(project);
 		
 		//use redirect to prevent duplicate submissions
-		return "redirect:/projects/new";
+		return "redirect:/projects";
 	}
 	
 	

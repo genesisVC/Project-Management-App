@@ -23,14 +23,14 @@
 		
 		
 		<!--  "*" is the same as writing project.employee....it's refering to a field within the parent class.-->
-		<!-- 
+		
 		<select th:field = "*{employees}" multiple = "multiple">
 			<option th:each = "employee : ${allEmployees}"
 					th:value = "${employee.employeeId}"
 					th:text = "${employee.firstName}">
 			</option>
 		</select>
-		
+		<!-- 
 		<input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
 		-->
 		<button type="submit">Create Project</button>

@@ -1,1 +1,7 @@
 @charset "ISO-8859-1";
+h4 {text-align: center;}
+h3 {text-align: center;}
+.table table-bordered table-striped {
+	 margin-left: auto;
+  margin-right: auto;
+}
