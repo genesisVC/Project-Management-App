@@ -15,8 +15,8 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Project {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long projectID;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long projectId;
 	private String name;
 	private String stage;
 	private String description;
@@ -30,17 +30,6 @@ public class Project {
 	
 	private List<Employee> employees;
 	
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-
-
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
 
 
 
@@ -59,17 +48,34 @@ public class Project {
 	}
 
 
-
-
-	public long getProjectID() {
-		return projectID;
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
 
 
-	public void setProjectID(long projectID) {
-		this.projectID = projectID;
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
+
+
+
+	
+
+
+
+	public long getProjectId() {
+		return projectId;
+	}
+
+
+
+
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
+
 
 
 

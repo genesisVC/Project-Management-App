@@ -55,10 +55,10 @@
 	 		</tr>
 	 	</thead>
 	 	<tbody>
-	 		<tr th:each = "aEmployeeProjectCnt : ${employeesListProjectCnt}">
-	 			<td th:text = "${aEmployeeProjectCnt.firstName}"/>
-	 			<td th:text = "${aEmployeeProjectCnt.lastName}" />
-	 			<td th:text = "${aEmployeeProjectCnt.projectCount}" />
+	 		<tr th:each = "aEmployee : ${employeesList}">
+	 			<td th:text = "${aEmployee.firstName}"/>
+	 			<td th:text = "${aEmployee.lastName}" />
+	 			<td th:text = "${aEmployee.email}" />
 	 		</tr>
 	 	</tbody>
 	</table>
