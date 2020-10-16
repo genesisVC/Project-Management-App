@@ -1,16 +1,40 @@
+var chartDataStr = decodeHTML(chartData);
+var chartJsonArray = JSON.parse(chartDataStr);
+
+var arrayLength = chartJsonArray.length;
+
+var numericData =[];
+var labelData = [];
+
+for(var i = 0; i < arrayLength; i++) {
+	numericData[i] = chartJsonArray[i].value;
+	labelData[i] = chartJsonArray[i].label;
+}
+
+
 // For a pie chart
 new Chart(document.getElementById("myPieChart"), {
     type: 'pie',
      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: labelData,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            backgroundColor: ["#3e95cd","#8e5ea2", "#3cba9f"],
+            data: numericData
         }]
     },
 
     // Configuration options go here
-    options: {}
+    options: {
+    	title: {
+    		display: true,
+    		text: 'Project Statuses'
+    	}
+    }
 });
+
+function decodeHTML(html) {
+	var txt = document.createElement("textarea");
+	txt.innerHTML = html;
+	return txt.value;
+}
