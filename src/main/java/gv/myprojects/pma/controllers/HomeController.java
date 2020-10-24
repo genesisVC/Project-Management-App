@@ -10,29 +10,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import gv.myprojects.pma.dao.iEmployeeRepository;
-import gv.myprojects.pma.dao.iProjectRepository;
 import gv.myprojects.pma.dto.ChartData;
 import gv.myprojects.pma.dto.EmployeeProject;
 import gv.myprojects.pma.entities.Project;
+import gv.myprojects.pma.services.EmployeeService;
+import gv.myprojects.pma.services.ProjectService;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	iProjectRepository proRepo;
+	ProjectService proService;
 	
 	@Autowired
-	iEmployeeRepository empRepo;
+	EmployeeService empService;
 	
 	@GetMapping("/")
 	public String displayHome(Model model) throws JsonProcessingException {
 		
 	//query the database for projects
-	List<Project> projects = proRepo.findAll();
+	List<Project> projects = proService.getAll();
 	model.addAttribute("projects",projects);
 	
-	List<ChartData> projectData = proRepo.getProjectStatus();
+	List<ChartData> projectData = proService.getProjectStatus();
 	
 	//Convert projectData object into a json structure for use in Javascript
 	ObjectMapper objectMapper = new ObjectMapper();
@@ -41,7 +41,7 @@ public class HomeController {
 	model.addAttribute("projectStatusCount", jsonString);
 	
 	//query the database for employees
-	List<EmployeeProject> employeesProjectCount = empRepo.employeeProjects();
+	List<EmployeeProject> employeesProjectCount = empService.employeeProjects();
 	model.addAttribute("employeesListProjectCount", employeesProjectCount);
 	
 	return "main/home";

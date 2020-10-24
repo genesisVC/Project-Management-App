@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import gv.myprojects.pma.dao.iEmployeeRepository;
 import gv.myprojects.pma.entities.Employee;
+import gv.myprojects.pma.services.EmployeeService;
 
 
 
@@ -19,11 +19,11 @@ import gv.myprojects.pma.entities.Employee;
 public class EmployeeController {
 	
 	@Autowired
-	iEmployeeRepository empRepo;
+	EmployeeService empService;
 	
 	@GetMapping
 	public String displayEmployees(Model model) {
-		List<Employee> employees =empRepo.findAll();
+		Iterable<Employee> employees =empService.getAll();
 		model.addAttribute("employees", employees);
 		return "employees/list-employees";
 	}
@@ -38,7 +38,7 @@ public class EmployeeController {
 	
 	@PostMapping("/save")
 	public String createProject(Employee employee, Model model) {
-		empRepo.save(employee);
+		empService.save(employee);
 		
 		//use redirect to prevent duplicate submissions
 		return "redirect:/employees/new";
