@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import gv.myprojects.pma.dto.EmployeeProject;
 import gv.myprojects.pma.entities.Employee;
 
+
+@RepositoryRestResource(collectionResourceRel = "apiemployees", path = "apiemployees")
 public interface iEmployeeRepository extends CrudRepository <Employee,Long>{
 	@Override
 	public List<Employee> findAll();
