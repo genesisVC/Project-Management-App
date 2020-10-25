@@ -27,6 +27,16 @@ public class ProjectService {
 	public List <ChartData> getProjectStatus() {
 		return proRepo.getProjectStatus();
 	}
+
+	public Project findByProjectId(long id) {
+		// TODO Auto-generated method stub
+		return proRepo.findByProjectId(id);
+	}
+
+	public void delete(Project theProj) {
+		proRepo.delete(theProj);
+		
+	}
 	
 ////	public List<TimeChartData> getTimeData(){
 ////		return proRepo.getTimeData();

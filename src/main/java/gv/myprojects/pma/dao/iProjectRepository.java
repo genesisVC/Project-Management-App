@@ -20,6 +20,9 @@ public interface iProjectRepository extends CrudRepository<Project, Long> {
 			"GROUP BY stage")
 	public List<ChartData> getProjectStatus();
 	
+	public Project findByProjectId(long theId);
+		
+	
 //	@Query(nativeQuery = true, value = "Select name as projectName, start_date as startDate, end_date as endDate"
 //			+ " From project Where start_date is not null")
 	//public List<TimeChartData> getTimeData();
