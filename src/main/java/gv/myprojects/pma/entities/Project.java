@@ -1,5 +1,7 @@
 package gv.myprojects.pma.entities;
 
+
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,6 +22,9 @@ public class Project {
 	private String name;
 	private String stage;
 	private String description;
+	
+	private Date startDate;
+	private Date endDate;
 	
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST },
 			fetch = FetchType.LAZY)
@@ -110,6 +115,34 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+
+
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+
+
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+
+
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	
 	

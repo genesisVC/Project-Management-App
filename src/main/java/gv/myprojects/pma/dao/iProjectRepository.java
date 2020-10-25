@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import gv.myprojects.pma.dto.ChartData;
+import gv.myprojects.pma.dto.TimeChartData;
 import gv.myprojects.pma.entities.Project;
 
 @RepositoryRestResource(collectionResourceRel = "apiprojects", path = "apiprojects")
@@ -23,8 +24,8 @@ public interface iProjectRepository extends CrudRepository<Project, Long> {
 	public Project findByProjectId(long theId);
 		
 	
-//	@Query(nativeQuery = true, value = "Select name as projectName, start_date as startDate, end_date as endDate"
-//			+ " From project Where start_date is not null")
-	//public List<TimeChartData> getTimeData();
+	@Query(nativeQuery = true, value = "Select name as projectName, start_date as startDate, end_date as endDate"
+			+ " From project Where start_date is not null")
+	public List<TimeChartData> getTimeData();
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import gv.myprojects.pma.dao.iProjectRepository;
 import gv.myprojects.pma.dto.ChartData;
+import gv.myprojects.pma.dto.TimeChartData;
 import gv.myprojects.pma.entities.Project;
 
 @Service
@@ -38,8 +39,8 @@ public class ProjectService {
 		
 	}
 	
-////	public List<TimeChartData> getTimeData(){
-////		return proRepo.getTimeData();
-//	}
+	public List<TimeChartData> getTimeData(){
+		return proRepo.getTimeData();
+	}
 
 }
