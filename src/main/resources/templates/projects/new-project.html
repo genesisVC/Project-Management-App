@@ -8,33 +8,38 @@
 <body>
 <nav th:replace = "layouts :: navbar"> </nav>
 
+<h3>New Project</h3>
+
 <div class="container">
 		<form action="/projects/save" th:object = "${project}" method="POST">
 		
-		<input type="text" placeholder="Project Name" th:field="${project.name}" >
-		
-		<select th:field = "${project.stage}">
-			<option th:value="NOTSTARTED"> Not Started</option>
-			<option th:value="INPROGRESS"> In Progress</option>
-			<option th:value="COMPLETED"> Completed</option>
-		</select>
-		
-		 
+		<div class = "form-group row">
+			<input type="text" placeholder="Project Name" th:field="${project.name}" >
+		</div>
+		<div class = "form-group row">
+			<select th:field = "${project.stage}">
+				<option th:value="NOTSTARTED"> Not Started</option>
+				<option th:value="INPROGRESS"> In Progress</option>
+				<option th:value="COMPLETED"> Completed</option>
+			</select>
+		</div>
+		 <div class = "form-group row">
 		<textarea type="text" placeholder="Enter Project Description" th:field = "${project.description}"></textarea>
-		
+		</div>
 		
 		<!--  "*" is the same as writing project.employee....it's refering to a field within the parent class.-->
-		
+		<div class = "form-group row">
 		<select th:field = "*{employees}" multiple = "multiple">
 			<option th:each = "employee : ${allEmployees}"
 					th:value = "${employee.employeeId}"
 					th:text = "${employee.firstName}">
 			</option>
 		</select>
+		</div>
 		<!-- 
 		<input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
 		-->
-		<button type="submit">Create Project</button>
+		<button class = "btn btn-info col-2" type="submit">Enter Project</button>
 		
 		</form>
 	</div>
