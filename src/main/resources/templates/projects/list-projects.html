@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head th:replace="layouts :: head"> 
+	<head th:replace="layouts :: header"> 
 	</head>
 	
 	<body>
@@ -16,6 +16,10 @@
 			<a th:href="@{/projects/new}"
 				class="btn btn-primary btn-sm mb-3"> 
 				New Project 
+			</a>
+			<a th:href="@{/projects/timelines}"
+				class="btn btn-primary btn-sm mb-3"> 
+				Project Timelines 
 			</a>
 			<table class="table table-bordered table-striped">
 				<thead class="thead-dark">
