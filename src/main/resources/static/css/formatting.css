@@ -1,24 +1,8 @@
 @charset "ISO-8859-1";
 
-/* h4 {text-align: center;}
-h3 {text-align: center;}
-.table table-bordered table-striped {
-	 margin-left: auto;
-  margin-right: auto;
-} */
 
-h3 {
-	color: black;
-}
 
-.form-group row{
-	margin:50 auto;
-	
-}
 
-.border{
-	
-}
 body {
 	
 	margin:0 auto;

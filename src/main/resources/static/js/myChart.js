@@ -19,7 +19,7 @@ new Chart(document.getElementById("myPieChart"), {
         labels: labelData,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: ["#3e95cd","#8e5ea2", "#3cba9f"],
+            backgroundColor: ["#1795e3","#e33217", "#d3d624"],
             data: numericData
         }]
     },
@@ -28,7 +28,7 @@ new Chart(document.getElementById("myPieChart"), {
     options: {
     	title: {
     		display: true,
-    		text: 'Project Statuses'
+    		text: 'Project Status'
     	}
     }
 });

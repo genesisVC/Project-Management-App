@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 
 <head th:replace = "layouts :: header"> </head>
 
@@ -44,23 +43,31 @@
 		</select>
 		</div>
 		
-			Project Start Date:
+			Project Start Date:<br> (Please select date from calender)
 			<div class ="form-group row justify-content-center">
-				<input id = "dp3" type = "text" class = "mb-4 col-2 col-xs-4" value = "Start Date" th:field = "${project.startDate}">
+				<input id="dp3" type="text" class="mb-4 col-2 col-xs-4" value="Start Date" onfocus = "this.value =''" th:field = "${project.startDate}">
 			</div>
 			
-			Project End Date:
+			Project End Date:<br> (Please select date from calender)
 			<div class = "form-group row  justify-content-center">
-				<input id = "dp4" type = "text" class = "mb-4 col-2 col-xs-4" value ="End Date" th:field = "${project.endDate}">
+				<input id="dp4" type="text" class="mb-4 col-2 col-xs-4" value="End Date"  onfocus = "this.value =''" th:field = "${project.endDate}">
 			</div>
+			
 			
 			<script type = "text/javascript">
-				$('#dp3').datepicker();
+				 $('#dp3').datepicker();
 				$('#dp4').datepicker();
+				
+				function init() {
+				    // Clear forms here
+				    document.getElementById("dp3").value = "";
+				    document.getElementById("dp4").value = "";
+				}
+				window.onload = init;
+				
 			</script>
-		<!-- 
-		<input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
-		-->
+		
+	
 		<button class = "btn btn-primary col-2" type="submit">Enter Project</button>
 		
 		</form>

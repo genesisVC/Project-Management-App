@@ -1,6 +1,8 @@
 package gv.myprojects.pma.entities;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -121,6 +123,7 @@ public class Project {
 
 
 	public Date getStartDate() {
+		
 		return startDate;
 	}
 
@@ -135,6 +138,8 @@ public class Project {
 
 
 	public Date getEndDate() {
+		
+		
 		return endDate;
 	}
 
