@@ -26,7 +26,13 @@ Web app allows you to track and edit project progress. App was built using Sprin
 
 ## Technologies
 Project is created with:
+* Spring Framework
 * Spring Boot
+* Spring MVC
+* Spring Data JPA
+* Spring Thymeleaf
+* Spring Web Services
+* Build: Maven
 * Java
 * Bootstrap 4
 * Javascript
