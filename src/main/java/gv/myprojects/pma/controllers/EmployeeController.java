@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 import gv.myprojects.pma.entities.Employee;
+import gv.myprojects.pma.entities.Project;
 import gv.myprojects.pma.services.EmployeeService;
 
 
@@ -27,8 +28,20 @@ public class EmployeeController {
 	@GetMapping
 	public String displayEmployees(Model model) {
 		Iterable<Employee> employees =empService.getAll();
+		Employee newEmployee = new Employee();
 		model.addAttribute("employees", employees);
+		model.addAttribute("employee", newEmployee);
 		return "employees/list-employees";
+	}
+	
+	@PostMapping("/employeeNameSearch") 
+	  public String studentSearch(Model model, Project project, @RequestParam (value = "lastName", required = false) String lastName) {
+	  
+		 Iterable<Employee> foundEmployee = empService.getEmployeeNameIgnoreCase(lastName);
+		  
+		  model.addAttribute("foundEmployees", foundEmployee);
+
+		  return "employees/employeeNameSearch";
 	}
 	
 	@RequestMapping("/new")

@@ -23,4 +23,8 @@ public interface iEmployeeRepository extends CrudRepository <Employee,Long>{
 	public Employee findByEmail(String value);
 	
 	public Employee findByEmployeeId(long theId);
+	
+	public Iterable<Employee> findByLastName(String lastName);
+	
+	public Iterable<Employee> findByLastNameIgnoreCase(String lastName);
 }

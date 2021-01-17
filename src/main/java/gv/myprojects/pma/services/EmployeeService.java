@@ -35,6 +35,10 @@ public class EmployeeService {
 	public void delete(Employee emp) {
 		empRepo.delete(emp);
 	}
+
+	public Iterable<Employee> getEmployeeNameIgnoreCase(String lastName) {
+		return empRepo.findByLastNameIgnoreCase(lastName);
+	}
 	
 
 }

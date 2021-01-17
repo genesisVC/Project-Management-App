@@ -3,7 +3,7 @@
 	
 	<head th:replace="layouts :: header"></head>
 	
-	<body>
+	<body class = "text-center">
 	
 	<nav th:replace="layouts :: navbar"></nav>
 	
@@ -18,6 +18,14 @@
 			</a> 
 			<br></br>
 			
+			<form  action = "/employees/employeeNameSearch" th:object = "${employee}" method= "POST" class ="form-inline" >
+		    <div class="col">
+		    <label for="lastNameSearch"><b>Search By Last Name</b></label>
+		      <input type="text" class="form-control mr-sm-2" placeholder="Last Name" name = "lastNameSearch" th:field = "${employee.lastName}" th:value = "${employee.lastName}" min="1" required>
+		   		<button class = "btn btn-primary col-2" type="submit">Search</button>
+		   </div>
+		   </form>
+			<br></br>
 			<table class="table table-bordered table-hover">
 				<thead class="thead-dark">
 					<tr>
