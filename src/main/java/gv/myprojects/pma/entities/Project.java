@@ -15,17 +15,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Project {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long projectId;
+	
+	@NotBlank(message = "Please enter first name.")
+	@Size(min = 2, max = 50)
 	private String name;
+	
+	@NotBlank(message = "Please enter project name.")
+	@Size(min = 2, max = 50)
 	private String stage;
+	
+	@NotBlank(message = "Please enter project description.")
+	@Size(min = 2)
 	private String description;
 	
+	@NotBlank
 	private Date startDate;
+	
+	@NotBlank
 	private Date endDate;
 	
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST },

@@ -1,12 +1,16 @@
 package gv.myprojects.pma.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import gv.myprojects.pma.entities.Employee;
 import gv.myprojects.pma.services.EmployeeService;
@@ -36,9 +40,17 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/save")
-	public String createProject(Employee employee, Model model) {
-		empService.save(employee);
+	public String createProject(Model model, @Valid Employee employee,  Errors errors) {
 		
+	
+		if(errors.hasErrors()) {
+			
+			
+			return "employees/new-employee";
+		}
+			
+			empService.save(employee);
+			
 		//use redirect to prevent duplicate submissions
 		return "redirect:/employees";
 

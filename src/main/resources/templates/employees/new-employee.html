@@ -15,22 +15,39 @@
 <div class="container">
 		
 		
+		
 		<form th:action="@{/employees/save}" th:object = "${employee}" method="POST">
+		
 		
 		<input type="hidden" th:field="${employee.employeeId}"/>
 		
+		<label for="EmployeeFirstNameInput"><b>First Name</b></label>
 		<div class = "form-group row justify-content-center">
-		<input type = "text" placeholder="First Name" th:field="${employee.firstName}" >
+			<div class = col-md-4>
+		<input type = "text"  class="form-control" placeholder="First Name" th:field="${employee.firstName}" >
+			 <span style = "color: red" th:if= "${#fields.hasErrors('firstName')}"
+		      		th:errors = "${employee.firstName}"></span>
+		</div>
 		</div>
 		
+		<label for="EmployeeFirstNameInput"><b>Last Name</b></label>
 		<div class = "form-group row justify-content-center">
-		<input type = "text" placeholder = "Last Name"  th:field = "${employee.lastName}">
+			<div class = col-md-4>
+		<input type = "text"  class="form-control" placeholder = "Last Name"  th:field = "${employee.lastName}">
+		 <span style = "color: red" th:if= "${#fields.hasErrors('lastName')}"
+		      		th:errors = "${employee.lastName}"></span>
+		      </div>
 		</div>
 		
+		<label for="EmployeeEmailInput"><b>Email Name</b></label>
 		<div class = "form-group row justify-content-center">
-		<input type = "text" placeholder = "Email Address"  th:field = "${employee.email}">
+			<div class = col-md-4>
+		<input type = "text"  class="form-control" placeholder = "Email Address"  th:field = "${employee.email}">
+		 <span style = "color: red" th:if= "${#fields.hasErrors('email')}"
+		      		th:errors = "${employee.email}"></span>
+		      </div>
 		</div>
-		
+		<br>
 		
 		<!--<input type="password" th:field="*{password}" placeholder="Password" class="form-control" /> -->
 		<button class = "btn btn-primary col-2" type="submit">Enter Employee</button>

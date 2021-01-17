@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Employee {
@@ -20,8 +23,16 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long employeeId;
 	
+	@NotBlank(message = "Please enter first name.")
+	@Size(min = 2, max = 50)
 	private String firstName;
+	
+	@NotBlank(message = "Please enter last name.")
+	@Size(min = 2, max = 50)
 	private String lastName;
+	
+	@NotBlank(message = "Please enter email.")
+	@Email
 	private String email;
 	
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST },
