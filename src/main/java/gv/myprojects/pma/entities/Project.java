@@ -1,8 +1,6 @@
 package gv.myprojects.pma.entities;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -36,10 +36,10 @@ public class Project {
 	@Size(min = 2)
 	private String description;
 	
-	@NotBlank
+	//@NotNull(message = "Please select date from calendar.")
 	private Date startDate;
 	
-	@NotBlank
+	//@NotNull((message = "Please select date from calendar.")
 	private Date endDate;
 	
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST },
