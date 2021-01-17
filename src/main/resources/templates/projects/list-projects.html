@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head th:replace="layouts :: header"> 
-	</head>
+	<head th:replace="layouts :: header"> </head>
+	<body class = "text-center">
 	
 	<body>
 	
@@ -21,6 +21,16 @@
 				class="btn btn-primary btn-sm mb-3"> 
 				Project Timelines 
 			</a>
+			
+			<form  action = "/projects/projectNameSearch" th:object = "${project}" method= "POST" class ="form-inline" >
+		    <div class="col">
+		    <label for="projectNameSearch"><b>Search By Project Name</b></label>
+		      <input type="text" class="form-control mr-sm-2" placeholder="Project Name" name = "projectNameSearch" th:field = "${project.name}" th:value = "${project.name}" min="1" required>
+		   		<button class = "btn btn-primary col-2" type="submit">Search</button>
+		   </div>
+		   </form>
+			<br></br>
+			
 			<table class="table table-bordered table-hover">
 				<thead class="thead-dark">
 					<tr>

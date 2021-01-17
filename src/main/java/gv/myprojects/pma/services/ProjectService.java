@@ -43,4 +43,9 @@ public class ProjectService {
 		return proRepo.getTimeData();
 	}
 
+	public Iterable<Project> getProjectNameIgnoreCase(String projectName) {
+		return proRepo.findByNameIgnoreCase(projectName);
+		
+	}
+
 }

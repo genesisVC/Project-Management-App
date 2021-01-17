@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 import gv.myprojects.pma.dto.TimeChartData;
 import gv.myprojects.pma.entities.Employee;
 import gv.myprojects.pma.entities.Project;
@@ -35,8 +36,22 @@ public class ProjectController {
 	@GetMapping
 	public String displayProjectss(Model model) {
 		List<Project> projects =proService.getAll();
+		Project newProject = new Project();
+		model.addAttribute("project", newProject);
 		model.addAttribute("projects", projects);
 		return "projects/list-projects";
+	}
+	
+	@PostMapping("/projectNameSearch") 
+	  public String studentSearch(Model model, Project project, @RequestParam (value = "name", required = false) String projectName) {
+	  
+
+		
+		 Iterable<Project> foundProject = proService.getProjectNameIgnoreCase(projectName);
+		  
+		  model.addAttribute("foundProjects", foundProject);
+
+		  return "projects/projectNameSearch";
 	}
 	
 	@RequestMapping("/new")

@@ -27,5 +27,9 @@ public interface iProjectRepository extends CrudRepository<Project, Long> {
 	@Query(nativeQuery = true, value = "Select name as projectName, start_date as startDate, end_date as endDate"
 			+ " From project Where start_date is not null")
 	public List<TimeChartData> getTimeData();
+
+	public Iterable<Project> findByName(String value);
+	
+	public Iterable<Project> findByNameIgnoreCase(String value);
 	
 }
